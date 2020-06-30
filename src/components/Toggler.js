@@ -1,24 +1,22 @@
-import React, { useState } from 'react'
+import React from 'react'
+import useToggle from '../hooks/useToggle'
 
 function Toggler() {
-	const [isSunny, setIsSunny] = useState(true)
-	const [isButterfly, setIsButterfly] = useState(false)
-
-	const toggleSunny = () => {
-		setIsSunny(!isSunny)
-	}
-
-	const toggleButterfly = () => {
-		setIsButterfly(!isButterfly)
-	}
+	
+	const [isSunny, toggleIsSunny] = useToggle(true)
+	const [isButterfly, toggleIsButterfly] = useToggle(false)
+	const [hasTwoHumps, toggleHasTwoHumps] = useToggle(false)
 
 	return(
 		<div>
-			<h1 onClick={toggleSunny} style={{padding:'30px'}}>
+			<h1 onClick={toggleIsSunny} style={{padding:'30px'}}>
 				{isSunny ? "☀️" : "☔️" }
 			</h1>
-			<h1 onClick={toggleButterfly} style={{padding:'30px'}}>
+			<h1 onClick={toggleIsButterfly} style={{padding:'30px'}}>
 				{isButterfly ? "🦋" : "🐛"}
+			</h1>
+			<h1 onClick={toggleHasTwoHumps} style={{padding:'30px'}}>
+				{hasTwoHumps ? "🐫" : "🐪"}
 			</h1>
 		</div>
 	)
