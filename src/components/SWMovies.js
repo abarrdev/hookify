@@ -5,6 +5,7 @@ function SWMovies() {
 	const [number, setNumber] = useState(1)
 	
 	useEffect(() => {
+		console.log(process.env.REACT_APP_TRIP_ADV_API_KEY)
 		async function getData() {
 			axios({
 				"method":"GET",
@@ -12,7 +13,7 @@ function SWMovies() {
 				"headers":{
 				"content-type":"application/octet-stream",
 				"x-rapidapi-host":"tripadvisor1.p.rapidapi.com",
-				"x-rapidapi-key": "ed4c61f3e7msh5c90b77dad15488p1d6da8jsn050dc882c79f",
+				"x-rapidapi-key": process.env.REACT_APP_TRIP_ADV_KEY,
 				"useQueryString":true
 				},"params":{
 				"lang":"en_US",
@@ -32,6 +33,7 @@ function SWMovies() {
 	})
 
 	return(
+		
 		<div>
 			<h1>Draw a number to teleport</h1>
 			<h4>You're in {number}</h4>
