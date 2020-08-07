@@ -5,7 +5,6 @@ function SWMovies() {
 	const [number, setNumber] = useState(1)
 	
 	useEffect(() => {
-		console.log(process.env.REACT_APP_TRIP_ADV_API_KEY)
 		async function getData() {
 			axios({
 				"method":"GET",
@@ -13,7 +12,7 @@ function SWMovies() {
 				"headers":{
 				"content-type":"application/octet-stream",
 				"x-rapidapi-host":"tripadvisor1.p.rapidapi.com",
-				"x-rapidapi-key": process.env.REACT_APP_TRIP_ADV_KEY,
+				"x-rapidapi-key": "ed4c61f3e7msh5c90b77dad15488p1d6da8jsn050dc882c79f",
 				"useQueryString":true
 				},"params":{
 				"lang":"en_US",
