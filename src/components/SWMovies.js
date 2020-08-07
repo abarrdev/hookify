@@ -12,7 +12,7 @@ function SWMovies() {
 				"headers":{
 				"content-type":"application/octet-stream",
 				"x-rapidapi-host":"tripadvisor1.p.rapidapi.com",
-				"x-rapidapi-key": ,
+				"x-rapidapi-key": "ed4c61f3e7msh5c90b77dad15488p1d6da8jsn050dc882c79f",
 				"useQueryString":true
 				},"params":{
 				"lang":"en_US",
