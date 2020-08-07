@@ -3,39 +3,44 @@ import axios from 'axios'
 
 function SWMovies() {
 	const [number, setNumber] = useState(1)
+	const [place, setPlace] = useState("your office chair")
 	
 	useEffect(() => {
 		async function getData() {
 			axios({
 				"method":"GET",
-				"url":"https://tripadvisor1.p.rapidapi.com/tips/list",
+				"url":"https://tripadvisor1.p.rapidapi.com/locations/search",
 				"headers":{
 				"content-type":"application/octet-stream",
 				"x-rapidapi-host":"tripadvisor1.p.rapidapi.com",
-				"x-rapidapi-key": "ed4c61f3e7msh5c90b77dad15488p1d6da8jsn050dc882c79f",
+				"x-rapidapi-key":"ed4c61f3e7msh5c90b77dad15488p1d6da8jsn050dc882c79f",
 				"useQueryString":true
 				},"params":{
+				"location_id":"890",
+				"limit":"7",
+				"sort":"relevance",
+				"offset":"0",
 				"lang":"en_US",
 				"currency":"USD",
-				"limit":"10",
-				"location_id":"8014024"
+				"units":"km",
+				"query":"see"
 				}
 				})
 				.then((response)=>{
-				  setNumber(response.data.data[number].user.user_location.name || "the US")
+				  setPlace(response.data.data[number].result_object.name)
 				})
 				.catch((error)=>{
 				  console.log(error)
 				})
 		}
 		getData()
-	})
+	}, [number]) //after adding the [number] argument, useEffect only runs when number changes
 
 	return(
 		
 		<div>
 			<h1>Draw a number to teleport</h1>
-			<h4>You're in {number}</h4>
+			<h4>You're in {place}</h4>
 			<select value={number} onChange={e => setNumber(e.target.value)}>
 				<option value="1">1</option>
 				<option value="2">2</option>
