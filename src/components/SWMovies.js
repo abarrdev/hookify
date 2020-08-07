@@ -12,7 +12,7 @@ function SWMovies() {
 				"headers":{
 				"content-type":"application/octet-stream",
 				"x-rapidapi-host":"tripadvisor1.p.rapidapi.com",
-				"x-rapidapi-key":"ed4c61f3e7msh5c90b77dad15488p1d6da8jsn050dc882c79f",
+				"x-rapidapi-key": ,
 				"useQueryString":true
 				},"params":{
 				"lang":"en_US",
@@ -33,7 +33,7 @@ function SWMovies() {
 
 	return(
 		<div>
-			<h1>pick a number</h1>
+			<h1>Draw a number to teleport</h1>
 			<h4>You're in {number}</h4>
 			<select value={number} onChange={e => setNumber(e.target.value)}>
 				<option value="1">1</option>
