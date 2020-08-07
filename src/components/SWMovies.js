@@ -1,24 +1,48 @@
 import React, {useState, useEffect} from 'react'
+import axios from 'axios'
 
 function SWMovies() {
 	const [number, setNumber] = useState(1)
 	
 	useEffect(() => {
-		
+		async function getData() {
+			axios({
+				"method":"GET",
+				"url":"https://tripadvisor1.p.rapidapi.com/tips/list",
+				"headers":{
+				"content-type":"application/octet-stream",
+				"x-rapidapi-host":"tripadvisor1.p.rapidapi.com",
+				"x-rapidapi-key":"ed4c61f3e7msh5c90b77dad15488p1d6da8jsn050dc882c79f",
+				"useQueryString":true
+				},"params":{
+				"lang":"en_US",
+				"currency":"USD",
+				"limit":"10",
+				"location_id":"8014024"
+				}
+				})
+				.then((response)=>{
+				  setNumber(response.data.data[number].user.user_location.name || "the US")
+				})
+				.catch((error)=>{
+				  console.log(error)
+				})
+		}
+		getData()
 	})
 
 	return(
 		<div>
-			<h1>pick a movie</h1>
+			<h1>pick a number</h1>
+			<h4>You're in {number}</h4>
 			<select value={number} onChange={e => setNumber(e.target.value)}>
-				<h4>You chose {number}</h4>
-				<option value="1"></option>
-				<option value="2"></option>
-				<option value="3"></option>
-				<option value="4"></option>
-				<option value="5"></option>
-				<option value="6"></option>
-				<option value="7"></option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				<option value="6">6</option>
+				<option value="7">7</option>
 			</select>
 		</div>
 	)
