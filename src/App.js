@@ -1,15 +1,17 @@
 import React from 'react';
 import './App.css';
-import Toggler from './components/Toggler'
-import SimpleFormInput from './components/SimpleFormInput';
-import Clicker from './components/Clicker'
+// import Toggler from './components/Toggler'
+// import SimpleFormInput from './components/SimpleFormInput';
+// import Clicker from './components/Clicker'
+import SWMovies from './components/SWMovies'
 
 function App() {
   return (
     <div className="App">
-      <Clicker />
+      {/* <Clicker />
       <Toggler />
-      <SimpleFormInput />
+      <SimpleFormInput /> */}
+      <SWMovies />
     </div>
   );
 }
